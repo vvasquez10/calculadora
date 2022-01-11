@@ -12,9 +12,13 @@
 
 #display{
     color: yellow;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-family: 'Codystar', cursive;
     background-color: rgb(48, 47, 47);
     border-radius: 5px;
+    overflow:hidden;
+    display: block;
+    text-overflow: ellipsis;
+    text-align: right;
 }
 

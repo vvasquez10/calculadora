@@ -1,4 +1,4 @@
-/*erores por solucionar    
+/*erores por solucionar   
     - Display intermedio me debe dar el resultado parcial. (ya no será necesario clr():23)
     - Si pulso más de 1 vez alguna operacion, muere.     
 */
@@ -44,7 +44,7 @@ function setOP(operation){
         case "*":
             if(onOperation){
                 if(resultado===0){
-                    resultado = parseInt(getDisplay());
+                    resultado = parseFloat(getDisplay());
                 } else{
                     actualizarResultado();
                 }
@@ -60,7 +60,7 @@ function setOP(operation){
         case "/":
             if(onOperation){
                 if(resultado===0){
-                    resultado = parseInt(getDisplay());
+                    resultado = parseFloat(getDisplay());
                 } else{
                     actualizarResultado();
                 }
@@ -72,34 +72,32 @@ function setOP(operation){
                 operacionActual = operation;   
                 show("0");
             }
-            break;
-        default:
-            // code block
+            break;        
       }
 }
 
 function calculate(){
     switch(operacionActual){
         case "+":
-            resultado = resultado + parseInt(getDisplay());
+            resultado = resultado + parseFloat(getDisplay());
             console.log(resultado);
             show(resultado);
             onOperation=false;
         break;
         case "-":
-            resultado = resultado - parseInt(getDisplay());
+            resultado = resultado - parseFloat(getDisplay());
             console.log(resultado);
             show(resultado);
             onOperation=false;
         break;
         case "*":
-            resultado = resultado * parseInt(getDisplay());
+            resultado = resultado * parseFloat(getDisplay());
             console.log(resultado);
             show(resultado);
             onOperation=false;
         break;
         case "/":
-            resultado = resultado / parseInt(getDisplay());
+            resultado = resultado / parseFloat(getDisplay());
             console.log(resultado);
             show(resultado);
             onOperation=false;
@@ -125,19 +123,19 @@ function getDisplay(){
 function actualizarResultado(){
     switch(operacionActual){
         case "+":
-            resultado = resultado + parseInt(getDisplay());           
+            resultado = resultado + parseFloat(getDisplay());           
         break;
         case "-":
-            resultado = resultado - parseInt(getDisplay());            
+            resultado = resultado - parseFloat(getDisplay());            
         break;
         case "*":
-            resultado = resultado * parseInt(getDisplay());            
+            resultado = resultado * parseFloat(getDisplay());            
         break;
         case "/":
-            resultado = resultado * parseInt(getDisplay());            
+            resultado = resultado * parseFloat(getDisplay());            
         break;
         case "":
-            resultado = parseInt(getDisplay());            
+            resultado = parseFloat(getDisplay());            
         break;
     }
 }
