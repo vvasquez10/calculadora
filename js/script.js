@@ -1,5 +1,4 @@
-/*erores por solucionar
-    - No se pueden combinar operaciones.
+/*erores por solucionar    
     - Display intermedio me debe dar el resultado parcial. (ya no será necesario clr():23)
     - Si pulso más de 1 vez alguna operacion, muere.     
 */
@@ -20,8 +19,8 @@ function setOP(operation){
     switch(operation) {
         case "+":
             if(onOperation){
-                operacionActual = operation;            
-                resultado = resultado + parseInt(getDisplay());   
+                actualizarResultado(); //aqui se efectua la op anterior
+                operacionActual = operation;    
                 console.log(resultado);
                 $("#display").text("0");
             } else{
@@ -31,9 +30,9 @@ function setOP(operation){
             }
             break;
         case "-":
-            if(onOperation){                      
+            if(onOperation){                    
+                actualizarResultado(); //aqui se efectua la op anterior
                 operacionActual = operation; 
-                resultado = resultado - parseInt(getDisplay());
                 console.log(resultado);
                 $("#display").text("0");
             } else{
@@ -44,12 +43,12 @@ function setOP(operation){
             break;
         case "*":
             if(onOperation){
-                operacionActual = operation;
                 if(resultado===0){
                     resultado = parseInt(getDisplay());
                 } else{
-                    resultado = resultado * parseInt(getDisplay());
-                }          
+                    actualizarResultado();
+                }
+                operacionActual = operation;          
                 console.log(resultado);
                 $("#display").text("0");
             } else{
@@ -60,8 +59,12 @@ function setOP(operation){
             break;
         case "/":
             if(onOperation){
-                operacionActual = operation;            
-                resultado = resultado / parseInt(getDisplay());   
+                if(resultado===0){
+                    resultado = parseInt(getDisplay());
+                } else{
+                    actualizarResultado();
+                }
+                operacionActual = operation;  
                 console.log(resultado);
                 $("#display").text("0");
             } else{
@@ -108,6 +111,7 @@ function clr(){
     $("#display").text("0");
     resultado=0;
     onOperation=false;
+    operacionActual="";
 }
 
 function show(element){
@@ -118,8 +122,27 @@ function getDisplay(){
     return $("#display").text();
 }
 
-/*
 function actualizarResultado(){
-    return $("#display").text();
+    switch(operacionActual){
+        case "+":
+            resultado = resultado + parseInt(getDisplay());           
+        break;
+        case "-":
+            resultado = resultado - parseInt(getDisplay());            
+        break;
+        case "*":
+            resultado = resultado * parseInt(getDisplay());            
+        break;
+        case "/":
+            resultado = resultado * parseInt(getDisplay());            
+        break;
+        case "":
+            resultado = parseInt(getDisplay());            
+        break;
+    }
 }
-*/
+
+/*
+si es la primera operacion solo debe
+ igualar el resultado con el primer numero ingresado
+ */
