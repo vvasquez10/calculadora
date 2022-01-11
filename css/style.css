@@ -1,0 +1,20 @@
+#calculator{
+    background-color: black;
+    padding: 3%;
+
+}
+
+.btn{
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: none;  
+}
+
+#display{
+    color: yellow;
+    margin-bottom: 10px;
+    font-family: 'Codystar', cursive;
+    background-color: rgb(48, 47, 47);
+    border-radius: 5px;
+}
+
